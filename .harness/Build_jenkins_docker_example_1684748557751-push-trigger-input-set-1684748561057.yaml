@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_jenkins_docker_example_1684748557751-push-trigger-input-set
+  identifier: Build_jenkins_docker_example_1684748557751pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Fruits
+  pipeline:
+    identifier: Build_jenkins_docker_example_1684748557751
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
