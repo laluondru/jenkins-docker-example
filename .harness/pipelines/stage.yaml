@@ -1,0 +1,40 @@
+pipeline:
+  identifier: jenkins_docker_stage
+  name: jenkins-docker-stage
+  orgIdentifier: default
+  projectIdentifier: Fruits
+  properties:
+    ci:
+      codebase:
+        build:
+          spec:
+            branch: main
+          type: branch   
+        connectorRef: account.Github
+        repoName: laluondru/jenkins-docker-example
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      repo: hello/world
+                      tags: latest
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
