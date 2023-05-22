@@ -1,12 +1,15 @@
 pipeline:
   identifier: jenkins_docker
-  name: Build jenkins-docker-example
+  name: jenkins-docker-example
   orgIdentifier: default
   projectIdentifier: Fruits
   properties:
     ci:
       codebase:
-        build: <+input>
+        build:
+          spec:
+            branch: master
+          type: branch   
         connectorRef: account.Github
         repoName: laluondru/jenkins-docker-example
   stages:
